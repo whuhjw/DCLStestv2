@@ -92,7 +92,7 @@ class Algorithm_result():
             caput(('SIS' + '.RMCOFFC'), coff(1, 0));
             caput(('SIS' + '.RMCOFFD'), coff(1, 1));
             caput(('SIS' + '.KGAIN'), args);
-
+    # 上层软件设定值发布成pv量
     def sisout(iout, qout, ch):
         if ch == 1:
             caput('SIS' + ':IOUT', iout)
@@ -120,20 +120,7 @@ class Algorithm_result():
             caput('SIS' + ':AMPOUT2.RARM', 1)
 
             caput('SIS' + '.UPDATE', 'YES');
-    def siscorr(coff, *args):
-        if len(args) == 0:
-            caput(('SIS' + '.IOFFSET'), coff(0, 0));
-            caput(('SIS' + '.QOFFSET'), coff(1, 0));
-            caput(('SIS' + '.IQCOFFA'), coff(0, 1));
-            caput(('SIS' + '.IQCOFFB'), coff(0, 2));
-            caput(('SIS' + '.IQCOFFC'), coff(1, 1));
-            caput(('SIS' + '.IQCOFFD'), coff(1, 2));
-        else:
-            caput(('SIS' + '.RMCOFFA'), coff(0, 0));
-            caput(('SIS' + '.RMCOFFB'), coff(0, 1));
-            caput(('SIS' + '.RMCOFFC'), coff(1, 0));
-            caput(('SIS' + '.RMCOFFD'), coff(1, 1));
-            caput(('SIS' + '.KGAIN'), args);
+
     def sisin(self):
         out = np.zeros([11, 1023]);
 
